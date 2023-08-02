@@ -11,8 +11,11 @@ import logging
 import os
 
 #Set up logging
+log_directory = '/var/log'
+log_file_path = os.path.join(log_directory, 'block-production-monitor.log')
+
 logging.basicConfig(
-    filename=os.path.expanduser('~/logs/block-production-monitor.log'),
+    filename=log_file_path,
     format='%(asctime)s - %(levelname)s - %(message)s',
     level=logging.INFO
 )
