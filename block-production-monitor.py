@@ -70,8 +70,8 @@ def compare_block_production(leadership_schedule,block_info):
     logger.info("Comparing block production with leadership schedule.")
     current_time = datetime.datetime.now(datetime.timezone.utc).replace(tzinfo=None)
     latest_block_time = datetime.datetime.strptime(block_info[max(block_info)], "%Y-%m-%d %H:%M:%S").replace(tzinfo=None)
-    six_hours_ago = current_time - datetime.timedelta(hours=HOURS)
-    if latest_block_time < six_hours_ago:
+    n_hours_ago = current_time - datetime.timedelta(hours=HOURS)
+    if latest_block_time < n_hours_ago:
         logger.info("Comparing block production with leadership schedule.")
         send_telegram_alert("No new block in 6 hours")
     elif current_time > latest_block_time:
